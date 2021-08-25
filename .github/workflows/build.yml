@@ -28,7 +28,7 @@ jobs:
         which pip3
     - name: Build LaTeX
       run: |
-        echo "pull number1 "${{ github.pull_number }}
+        echo "pull number1 "${{ github.url }}
         echo "pull request 4 "${{github.pull_request.number}}
         echo "pull request 5 "${{github.number}}
         dir_to_compile=( $(python .github/workflows/get_directory_to_compile.py ${{ github.repository }} ${{github.event.number}} ${{ secrets.GITHUB_TOKEN }} ) )
