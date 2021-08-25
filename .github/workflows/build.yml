@@ -28,8 +28,8 @@ jobs:
         which pip3
     - name: Build LaTeX
       run: |
-        echo "pull number"${{ github.id }}
-        dir_to_compile=( $(python .github/workflows/get_directory_to_compile.py ${{ github.repository }} ${{github.id}} ${{ secrets.GITHUB_TOKEN }} ) )
+        echo "pull number"${{ github.event.number }}
+        dir_to_compile=( $(python .github/workflows/get_directory_to_compile.py ${{ github.repository }} ${{github.event.number}} ${{ secrets.GITHUB_TOKEN }} ) )
         echo "dir to compile value $dir_to_compile"
         for dir in $dir_to_compile; do
           cd $PWD/$dir
