@@ -5,7 +5,7 @@ from sys import argv
 
 def get_directory_to_compile(repository, pull_request_number#), access_token):
   
-  token = 'token '+ access_token
+  # token = 'token '+ access_token
   url = 'https://api.github.com/repos/' + repository + '/pulls/'+ str(pull_request_number) + '/files'
   x = requests.get(url, headers={'Accept': 'application/vnd.github.v3+json'})#, 'authorization': token})
   print(x.json())
