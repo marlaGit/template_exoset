@@ -1,8 +1,5 @@
 name: Build
 on:
-  push:
-    paths-ignore:
-      - '*.pdf'
   pull_request:
     branches:
       - master
@@ -28,10 +25,7 @@ jobs:
         which pip3
     - name: Build LaTeX
       run: |
-        echo "pull number1 "${{ github.head_ref }}
-        echo "pull request 4 "${{${{ toJSON(github) }}
-        echo "pull request 5 "${{github.number}}
-        dir_to_compile=( $(python .github/workflows/get_directory_to_compile.py ${{ github.repository }} ${{github.event.number}} ${{ secrets.GITHUB_TOKEN }} ) )
+        dir_to_compile=( $(python .github/workflows/get_directory_to_compile.py ${{ github.repository }} ${{github['event']['number']}} ) ) 
         echo "dir to compile value $dir_to_compile"
         for dir in $dir_to_compile; do
           cd $PWD/$dir
