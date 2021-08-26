@@ -1,8 +1,5 @@
 name: Build
 on:
-  push:
-    paths-ignore:
-      - '*.pdf'
   pull_request:
     branches:
       - master
